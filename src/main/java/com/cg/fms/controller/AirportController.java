@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.fms.dto.Airport;
@@ -14,6 +15,7 @@ import com.cg.fms.payload.RestResponse;
 import com.cg.fms.service.AirportServiceImpl;
 
 @RestController
+@RequestMapping("/airport")
 public class AirportController {
 	@Autowired
 	AirportServiceImpl airportService;
