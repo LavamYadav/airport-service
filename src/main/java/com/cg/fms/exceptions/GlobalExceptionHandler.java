@@ -16,15 +16,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.cg.fms.dto.ResponseDTO;
+import com.cg.fms.payload.RestResponse;
+
+
 
 
 /**
- * @author gauti
+ * @author lavam
  *
  */
 @ControllerAdvice
-public class UserGlobalExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(ConstraintViolationException.class)
 	public void constraintViolationException(HttpServletResponse response) throws IOException {
@@ -35,13 +37,11 @@ public class UserGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		ResponseDTO<Object> errorResponse = new ResponseDTO<>();
-		errorResponse.setStatus(false);
 		List<String> errors = ex.getBindingResult().getFieldErrors().stream().map(x -> x.getDefaultMessage())
 				.collect(Collectors.toList());
-		errorResponse.setMessage(errors.get(0));
-		return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+		return  ResponseEntity.ok(new RestResponse<>(false, errors.get(0)));
 
 	}
 
-}
+	}
+
