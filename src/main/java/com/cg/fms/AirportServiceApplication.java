@@ -15,9 +15,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class AirportServiceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "dev");
 		final Logger logger = LoggerFactory.logger(AirportServiceApplication.class);
 
-		System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "prod");
+		
 		logger.info("Starting Application.");
 		SpringApplication.run(AirportServiceApplication.class, args);
 		logger.info("Application Running.");

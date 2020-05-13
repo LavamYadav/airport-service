@@ -1,9 +1,7 @@
 package com.cg.fms.dto;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -12,19 +10,18 @@ import javax.validation.constraints.NotEmpty;
  */
 
 @Entity
-@Table
+
 public class Airport {
 	@Id
-	@Column(name = "airport_code")
 	private String airportCode;
 	
 	@NotEmpty(message = "Airport Name is Empty ")
-	@Column(name = "airport_name")
 	private String airportName;
 	
 	@NotEmpty(message = "Airport location is Empty ")
-	@Column(name = "airport_location")
 	private String airportLocation;
+	
+	
 
 	public String getAirportCode() {
 		return airportCode;
