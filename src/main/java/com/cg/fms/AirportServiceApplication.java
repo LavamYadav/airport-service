@@ -5,7 +5,6 @@ import org.jboss.logging.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.core.env.AbstractEnvironment;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -15,10 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class AirportServiceApplication {
 
 	public static void main(String[] args) {
-		System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "dev");
 		final Logger logger = LoggerFactory.logger(AirportServiceApplication.class);
-
-		
 		logger.info("Starting Application.");
 		SpringApplication.run(AirportServiceApplication.class, args);
 		logger.info("Application Running.");

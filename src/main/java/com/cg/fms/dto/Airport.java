@@ -20,8 +20,11 @@ public class Airport {
 	
 	@NotEmpty(message = "Airport location is Empty ")
 	private String airportLocation;
-	
-	
+
+	public Airport() {
+		super();
+
+	}
 
 	public String getAirportCode() {
 		return airportCode;
@@ -47,16 +50,5 @@ public class Airport {
 		this.airportLocation = airportLocation;
 	}
 
-	public Airport(String airportCode, String airportName, String airportLocation) {
-		super();
-		this.airportCode = airportCode;
-		this.airportName = airportName;
-		this.airportLocation = airportLocation;
-	}
-
-	public Airport() {
-		super();
-
-	}
 
 }
